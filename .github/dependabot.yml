@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
+version: 2
+
+updates:
+  # Root workspace configuration
+  - package-ecosystem: npm
+    directory: "/web"
+    schedule:
+      interval: weekly
+    groups:
+      non-major-development:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - '*'
+      non-major-production:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - '*'
+  
+  # Apps subdirectories - this is where the issue occurs
+  - package-ecosystem: npm
+    directories:
+      - '/web/apps/*'
+    schedule:
+      interval: weekly
+    groups:
+      non-major-development:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - '*'
+      non-major-production:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - '*'
+  
+  # Packages subdirectories - this is also where the issue occurs
+  - package-ecosystem: npm
+    directories:
+      - '/web/packages/**'
+    schedule:
+      interval: weekly
+    groups:
+      non-major-development:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - '*'
+      non-major-production:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - '*'
